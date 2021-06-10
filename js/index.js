@@ -35,14 +35,11 @@ function changeBrightness(factor, sprite) {
 function displayVictoryMess(moves) {
   document.getElementById("moves").innerHTML = "You Moved " + moves + " Steps.";
   toggleVisablity("Message-Container");  
-  document.querySelector('#messagee').innerHTML = "Time: "+ (180 - seconds)+ "\nScore: " + moves;
+  document.querySelector('#messagee').innerHTML = "Time: "+ (180 - seconds)+ "\nMoves: " + moves;
   seconds=0;
   clearInterval(intervalVar);
   createTimer(seconds);
   clearInterval(intervalVar);
-  // seconds=180;
-  // clearInterval(intervalVar);
-  // createTimer(seconds);
 }
 
 function toggleVisablity(id) {
@@ -590,6 +587,7 @@ function makeMaze() {
   seconds=180;
   clearInterval(intervalVar);
   createTimer(seconds);
+  moves=0;
   // var e = document.getElementById("diffSelect");
   // difficulty = e.options[e.selectedIndex].value;
   cellSize = mazeCanvas.width / difficulty;
@@ -651,4 +649,37 @@ document.querySelector(".popup .close-btn").addEventListener("click",function(){
   document.querySelector(".popup").classList.remove("active");
 }); 
 
-createTimer(180);
+
+//the first line of code states that the script will run only after the page has loaded 
+//and the script is ready to be executed.
+$(document).ready(function ()  
+{
+//select the close by class and apply a click even listener
+  $(".close").on("click", function () 
+	{
+		//select the modal element by id , and apply display none when close is clicked
+		//this will close the modal on click
+		$("#modal").css("display", "none")
+    seconds=0;
+    clearInterval(intervalVar);
+    createTimer(seconds);
+    seconds=180;
+    clearInterval(intervalVar);
+    createTimer(seconds);
+    moves=0;
+	});
+  
+});
+
+//this code snippent will check if the modal is present or not at the first session / loading
+//of the page, and if not then the display property of the modal will be set to block
+//and the modal shall appear
+if(sessionStorage.getItem('#modal') !== 'true'){
+  $('#modal').css('display','block');
+//then the modal will be set true in the current session due to which the modal won't 
+//reappear on the refresh, we need to reload the page in a new tab to make the modal 
+//reappear.
+sessionStorage.setItem('#ad_modal','true');
+}
+
+
