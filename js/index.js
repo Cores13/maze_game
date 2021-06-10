@@ -36,7 +36,13 @@ function displayVictoryMess(moves) {
   document.getElementById("moves").innerHTML = "You Moved " + moves + " Steps.";
   toggleVisablity("Message-Container");  
   document.querySelector('#messagee').innerHTML = ""+ (180 - seconds);
+  seconds=0;
   clearInterval(intervalVar);
+  createTimer(seconds);
+  clearInterval(intervalVar);
+  // seconds=180;
+  // clearInterval(intervalVar);
+  // createTimer(seconds);
 }
 
 function toggleVisablity(id) {
@@ -500,7 +506,7 @@ var sprite;
 var finishSprite;
 var maze, draw, player;
 var cellSize;
-var difficulty;
+var difficulty = 25;
 // sprite.src = 'media/sprite.png';
 
 window.onload = function() {
@@ -521,12 +527,8 @@ window.onload = function() {
   var isComplete = () => {
     if(completeOne === true && completeTwo === true)
        {
-        // clearInterval(intervalVar);
-        // createTimer(180);
-        clearInterval(intervalVar);
          console.log("Runs");
          setTimeout(function(){
-          clearInterval(intervalVar);
            makeMaze();
          }, 500);         
        }
@@ -554,7 +556,7 @@ window.onload = function() {
     completeTwo = true;
     console.log(completeTwo);
     isComplete();
-    clearInterval(intervalVar);
+    // clearInterval(intervalVar);
   };
   
 };
@@ -582,9 +584,14 @@ function makeMaze() {
     player.unbindKeyDown();
     player = null;
   }
-  
-  var e = document.getElementById("diffSelect");
-  difficulty = e.options[e.selectedIndex].value;
+  seconds=0;
+  clearInterval(intervalVar);
+  createTimer(seconds);
+  seconds=180;
+  clearInterval(intervalVar);
+  createTimer(seconds);
+  // var e = document.getElementById("diffSelect");
+  // difficulty = e.options[e.selectedIndex].value;
   cellSize = mazeCanvas.width / difficulty;
   maze = new Maze(difficulty, difficulty);
   draw = new DrawMaze(maze, ctx, cellSize, finishSprite);
@@ -627,7 +634,7 @@ function createTimer(sec) {
           secondsToShow = "0" + secondsToShow; // if the number of seconds is '5' for example, make sure that it is shown as '05'
       }
       ctx.fillText(minutes.toString() + ":" + secondsToShow, ctx.canvas.width + 30, ctx.canvas.height / 2);
-      document.querySelector('#score').innerHTML = ""+ (180 - seconds);
+      document.querySelector('#score').innerHTML = "Time: "+ (180 - seconds);
       seconds--;
       console.log(seconds);
   }, 1000);
