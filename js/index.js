@@ -35,7 +35,7 @@ function changeBrightness(factor, sprite) {
 function displayVictoryMess(moves) {
   document.getElementById("moves").innerHTML = "You Moved " + moves + " Steps.";
   toggleVisablity("Message-Container");  
-  // document.querySelector('#messagee').innerHTML = ""+ (180 - seconds);
+  document.querySelector('#messagee').innerHTML = "" (180 - seconds);
   seconds=0;
   clearInterval(intervalVar);
   createTimer(seconds);
