@@ -503,7 +503,7 @@ var sprite;
 var finishSprite;
 var maze, draw, player;
 var cellSize;
-var difficulty = 25;
+var difficulty = 10;
 // sprite.src = 'media/sprite.png';
 
 window.onload = function() {
