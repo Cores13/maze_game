@@ -547,7 +547,7 @@ window.onload = function() {
   };
 
   finishSprite = new Image();
-  finishSprite.src = "https://image.ibb.co/b9wqnJ/i_Q7m_U25_Imgur.png"+
+  finishSprite.src = "idea_token.png"+
   "?" +
   new Date().getTime();
   finishSprite.setAttribute("crossOrigin", " ");
