@@ -1,2 +1,2 @@
-# maze_game
-Javascript maze game
+#IDEA MAZE
+Maze game with a timer

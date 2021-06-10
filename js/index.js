@@ -35,7 +35,7 @@ function changeBrightness(factor, sprite) {
 function displayVictoryMess(moves) {
   document.getElementById("moves").innerHTML = "You Moved " + moves + " Steps.";
   toggleVisablity("Message-Container");  
-  document.querySelector('#messagee').innerHTML = ""+ (180 - seconds);
+  // document.querySelector('#messagee').innerHTML = ""+ (180 - seconds);
   seconds=0;
   clearInterval(intervalVar);
   createTimer(seconds);
@@ -600,9 +600,11 @@ function makeMaze() {
     document.getElementById("mazeContainer").style.opacity = "100";
   }
 }
-var time= 180;
+// var time= 180;
 var seconds;
 var intervalVar;
+var minutes
+var secondsToShow;
 
 function createTimer(sec) {
   seconds = sec;
@@ -614,6 +616,7 @@ function createTimer(sec) {
           ctx.fillStyle = "red";
           ctx.textAlign = "center";
           ctx.textBaseline = "middle";
+          makeMaze();
           return;
       }
       ctx.font = "20px Arial";
@@ -628,13 +631,14 @@ function createTimer(sec) {
       }
       ctx.textAlign = "center";
       ctx.textBaseline = "middle";
-      var minutes = Math.floor(seconds / 60);
+      minutes = Math.floor(seconds / 60);
       secondsToShow = (seconds - minutes * 60).toString();
       if (secondsToShow.length === 1) {
           secondsToShow = "0" + secondsToShow; // if the number of seconds is '5' for example, make sure that it is shown as '05'
       }
       ctx.fillText(minutes.toString() + ":" + secondsToShow, ctx.canvas.width + 30, ctx.canvas.height / 2);
-      document.querySelector('#score').innerHTML = "Time: "+ (180 - seconds);
+      // document.querySelector('#score').innerHTML = "Time: "+ (180 - seconds);
+      document.querySelector('#score').innerHTML = "Time: "+ minutes.toString() + ":" + secondsToShow;
       seconds--;
       console.log(seconds);
   }, 1000);
@@ -647,4 +651,4 @@ document.querySelector(".popup .close-btn").addEventListener("click",function(){
   document.querySelector(".popup").classList.remove("active");
 }); 
 
-createTimer(time);
+createTimer(180);
