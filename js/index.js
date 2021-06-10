@@ -535,7 +535,7 @@ window.onload = function() {
   };
   sprite = new Image();
   sprite.src =
-    "ideabot.png" +
+    "img/ideabot.png" +
     "?" +
     new Date().getTime();
   sprite.setAttribute("crossOrigin", " ");
@@ -547,7 +547,7 @@ window.onload = function() {
   };
 
   finishSprite = new Image();
-  finishSprite.src = "idea_token.png"+
+  finishSprite.src = "img/idea_token.png"+
   "?" +
   new Date().getTime();
   finishSprite.setAttribute("crossOrigin", " ");
