@@ -17,6 +17,7 @@ body {
 }
 .container {
   display: flex;
+  flex-direction: column;
 }
 
 #mazeContainer {
@@ -312,7 +313,10 @@ select:focus {
 	cursor: pointer
 }
 
-
+.navigation{
+  display: flex;
+  position: absolute;
+}
 
 
 @-webkit-keyframes Gradient {

@@ -326,6 +326,62 @@ function DrawMaze(Maze, ctx, cellsize, endSprite = null) {
   drawEndMethod();
 }
 
+// ===============================================
+
+function moveUp(){
+  removeSprite(cellCoords);
+  cellCoords = {
+    x: cellCoords.x,
+    y: cellCoords.y - 1
+  };
+  drawSprite(cellCoords);
+}
+function moveDown(){
+  removeSprite(cellCoords);
+  cellCoords = {
+    x: cellCoords.x,
+    y: cellCoords.y + 1
+  };
+  drawSprite(cellCoords);
+}
+function moveLeft(){
+  removeSprite(cellCoords);
+  cellCoords = {
+    x: cellCoords.x + 1,
+    y: cellCoords.y
+  };
+  drawSprite(cellCoords);
+}
+function moveRight(){
+  removeSprite(cellCoords);
+  cellCoords = {
+    x: cellCoords.x - 1,
+    y: cellCoords.y
+  };
+  drawSprite(cellCoords);
+}
+
+
+// function moveUp(el)
+// {
+//     //Set key to corresponding code. This one is set to the left arrow key.
+//     var key = 38;
+//     if(document.createEventObject)
+//     {
+//         var eventObj = document.createEventObject();
+//         eventObj.keyCode = key;
+//         el.fireEvent("onkeydown", eventObj);   
+//     }else if(document.createEvent)
+//     {
+//         var eventObj = document.createEvent("Events");
+//         eventObj.initEvent("keydown", true, true);
+//         eventObj.which = key;
+//         el.dispatchEvent(eventObj);
+//     }
+// } 
+
+// ==============================================
+
 function Player(maze, c, _cellsize, onComplete, sprite = null) {
   var ctx = c.getContext("2d");
   var drawSprite;
@@ -395,6 +451,8 @@ function Player(maze, c, _cellsize, onComplete, sprite = null) {
       cellSize - offsetRight
     );
   }
+
+  
 
   function check(e) {
     var cell = map[cellCoords.x][cellCoords.y];

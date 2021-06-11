@@ -57,10 +57,16 @@
         <div id="mazeContainer">
           <canvas id="mazeCanvas" class="border" height="1100" width="1100"></canvas>
         </div>
+        
       </div>
 
       <p id="score" class="score"></p>
-      
+      <div class="navigation">
+        <button id="left" type="button" onclick="moveLeft()">←</button>
+        <button id="right" type="button" onclick="moveRight()">→</button>
+        <button id="up" type="button" onclick="moveUp(this)">↑</button>
+        <button id="down" type="button" onclick="moveDown()">↓</button>
+      </div>
     </div>
     <img id="logo" src="img/logo.png" alt="Ideaology logo">
     <div class="popup">
