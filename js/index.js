@@ -36,9 +36,8 @@ function displayVictoryMess(moves) {
   document.getElementById("moves").innerHTML = "You Moved " + moves + " Steps.";
   toggleVisablity("Message-Container");  
   document.querySelector('#messagee').innerHTML = "Time: "+ (180 - seconds)+ "\nMoves: " + moves;
-  seconds=0;
   clearInterval(intervalVar);
-  createTimer(seconds);
+  createTimer(0);
   clearInterval(intervalVar);
 }
 
@@ -583,10 +582,9 @@ function makeMaze() {
   }
   seconds=0;
   clearInterval(intervalVar);
-  createTimer(seconds);
-  seconds=180;
+  createTimer(0);
   clearInterval(intervalVar);
-  createTimer(seconds);
+  createTimer(180);
   moves=0;
   // var e = document.getElementById("diffSelect");
   // difficulty = e.options[e.selectedIndex].value;
@@ -662,10 +660,9 @@ $(document).ready(function ()
 		$("#modal").css("display", "none")
     seconds=0;
     clearInterval(intervalVar);
-    createTimer(seconds);
-    seconds=180;
+    createTimer(0);
     clearInterval(intervalVar);
-    createTimer(seconds);
+    createTimer(180);
     moves=0;
 	});
   
