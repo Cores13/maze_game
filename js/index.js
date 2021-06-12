@@ -580,7 +580,7 @@ function makeMaze() {
     player.unbindKeyDown();
     player = null;
   }
-  seconds=0;
+  // seconds=0;
   clearInterval(intervalVar);
   createTimer(0);
   clearInterval(intervalVar);
@@ -658,7 +658,7 @@ $(document).ready(function ()
 		//select the modal element by id , and apply display none when close is clicked
 		//this will close the modal on click
 		$("#modal").css("display", "none")
-    seconds=0;
+    // seconds=0;
     clearInterval(intervalVar);
     createTimer(0);
     clearInterval(intervalVar);
